@@ -1,3 +1,4 @@
+package com.zubiri.agenda;
 public class Contact {
 	
 	private Person person;

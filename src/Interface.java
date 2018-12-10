@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+import com.zubiri.agenda.Agenda;
+import com.zubiri.agenda.Contact;
+import com.zubiri.agenda.Person;
+
 public class Interface {
 	
 	public static void main(String[] args) {

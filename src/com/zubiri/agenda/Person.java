@@ -1,3 +1,4 @@
+package com.zubiri.agenda;
 import java.util.Random;
 
 public class Person {
