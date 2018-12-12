@@ -1,9 +1,12 @@
 package com.zubiri.agenda;
+import java.util.ArrayList;
+
 public class Contact {
 	
 	private Person person;
 	private int phone = 000000000;
 	private String address = "";
+	private ArrayList<Notes> notes = new ArrayList<Notes>();
 	
 	public Contact (Person person, int phone, String adress) {
 		
@@ -49,6 +52,18 @@ public class Contact {
 		
 	}
 	
+	public ArrayList getNotes() {
+		
+		return notes;
+		
+	}
+	
+	public void setNotes(ArrayList notes) {
+		
+		this.notes = notes;
+		
+	}
+	
 	/** @author Iosu A method to see data
 	 * 
 	 * @return info
@@ -59,5 +74,13 @@ public class Contact {
 		return ", Phone: " + phone + ", Address: " + address + ".";
 		
 	}
+	
+	/*
+	public void addAL(Notes note) {
+		
+		notes.add(note);
+		
+	}
+	*/
 	
 }

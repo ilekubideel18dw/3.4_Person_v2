@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import com.zubiri.agenda.Agenda;
 import com.zubiri.agenda.Contact;
+import com.zubiri.agenda.Notes;
 import com.zubiri.agenda.Person;
 
 public class Interface {
@@ -23,7 +24,9 @@ public class Interface {
 			System.out.println("1.- View a contact.");
 			System.out.println("2.- Add a new contact.");
 			System.out.println("3.- Delete a contact.");
-			System.out.println("4.- Modify a contact.");
+			System.out.println("4.- Delete all contacts.");
+			System.out.println("5.- Modify a contact.");
+			System.out.println("6.- See how many contacts are in the agenda.");
 			System.out.println("0.- Exit.");
 			
 			int option = sc.nextInt();
@@ -164,6 +167,50 @@ public class Interface {
 				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
         		int continue4 = sc.nextInt();
         		if (continue4 < 1) {
+        			loop = 1;
+        		}
+				break;
+				
+			case 5: // Delete all
+
+				myContacts.deleteAllData();
+				
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue5 = sc.nextInt();
+        		if (continue5 < 1) {
+        			loop = 1;
+        		}
+				break;	
+				
+			case 6: // Contacts quantity
+
+				System.out.println("Your agenda has " + myContacts.dataSize() + " contacts.");
+				
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue6 = sc.nextInt();
+        		if (continue6 < 1) {
+        			loop = 1;
+        		}
+				break;	
+			
+			case 7: // Add notes
+				
+				System.out.println("To which contact do you want to add a note?");
+				String noteName = sc.next();
+				Contact noteContact = myContacts.takeContact(myContacts.find(noteName));
+				
+				System.out.println("Note:");
+				String note = sc.next();
+				
+				//modifiedData.getPerson().setName(sc.next());
+				//myContacts.addNotes(noteContact, note);
+				
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue7 = sc.nextInt();
+        		if (continue7 < 1) {
         			loop = 1;
         		}
 				break;

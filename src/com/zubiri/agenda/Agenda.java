@@ -100,4 +100,36 @@ public class Agenda {
 		
 	}
 	
+	/** @author Iosu A method to delete all the information in the agenda.
+	 * 
+	 */
+	
+	public void deleteAllData() {
+		
+		contacts.clear();
+		
+	}
+	
+	/** @author Iosu
+	 * 
+	 * @return The quantity of contacts.
+	 */
+	
+	public int dataSize() {
+		
+		return contacts.size();
+		
+	}
+	
+	/** @author Iosu
+	 * 
+	 * @param note
+	 */
+	
+	public void addNotes(Contact note) {
+		
+		contacts.add(note);
+			
+	}
+	
 }
