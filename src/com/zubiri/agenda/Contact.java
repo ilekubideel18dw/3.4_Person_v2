@@ -6,6 +6,7 @@ public class Contact {
 	private Person person;
 	private int phone = 000000000;
 	private String address = "";
+	private boolean fav = false;
 	private ArrayList<Notes> notes = new ArrayList<Notes>();
 	
 	public Contact (Person person, int phone, String adress) {
@@ -52,6 +53,18 @@ public class Contact {
 		
 	}
 	
+	public boolean getFav() {
+		
+		return fav;
+		
+	}
+	
+	public void setFav(boolean fav) {
+		
+		this.fav = fav;
+		
+	}
+	
 	public ArrayList getNotes() {
 		
 		return notes;
@@ -64,7 +77,8 @@ public class Contact {
 		
 	}
 	
-	/** @author Iosu A method to see data
+	/** @author Iosu 
+	 * A method to see data
 	 * 
 	 * @return info
 	 */

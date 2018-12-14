@@ -5,21 +5,23 @@ public class Agenda {
 		
 	ArrayList<Contact> contacts = new ArrayList<Contact>();
 	
-	/** @author Iosu An index to link a person with a phone and an address with the position.
+	/** @author Iosu 
+	 * An index to link a person with a phone and an address with the position.
 	 * 
-	 * @param data
+	 * @param name
 	 * @return An index
 	 */
-	
-	int index = 0;
 		
-	private int Index(String data) {
+	public int index(String name) {
+		
+		int index = 0;
 			
-		for (int x = 0; x < contacts.size(); x++) {
+		for (int x = 0; x < contacts.size()-1; x++) {
 				
-			if (contacts.get(x).getPerson().getName().matches(data)) {
+			if (contacts.get(x).getPerson().getName().matches(name)) {
 					
 				index = x;
+				break;
 				
 			}
 			
@@ -29,7 +31,8 @@ public class Agenda {
 		
 	}
 	
-	/** @author Iosu A method to take the information in the index
+	/** @author Iosu 
+	 * A method to take the information in the index
 	 * 
 	 * @param index
 	 * @return contact from the index
@@ -42,69 +45,62 @@ public class Agenda {
 
 	}
 	
-	/** @author Iosu A method to find a contact with an index
-	 * 
-	 * @param data
-	 * @return An index
-	 */
-	
-	public int find(String data) {
-		
-		return Index(data);
-			
-	}
-	
-	/** @author Iosu A method to view the information of one contact.
+	/** @author Iosu 
+	 * A method to view the information of one contact.
 	 * 
 	 *  @param data
 	 *  @return Return the information about a contact
 	 */
 		
-	public String viewData(String data) {
+	public String viewContact(String name) {
 			
-		return contacts.get(Index(data)).getPerson().toString() + contacts.get(Index(data)).toString2();
+		return contacts.get(index(name)).getPerson().toString() + contacts.get(index(name)).toString2();
 		
 	}
 	
-	/** @author Iosu A method to add new contact.
+	/** @author Iosu 
+	 * A method to add new contact.
 	 * 
 	 * @param data
 	 */
 		
-	public void addData(Contact data) {
+	public void addContact(Contact contact) {
 			
-		contacts.add(data);
+		contacts.add(contact);
 			
 	}
 	
-	/** @author Iosu A method to delete a contact.
+	/** @author Iosu 
+	 * A method to delete a contact.
 	 * 
 	 * @param data
 	 */
 		
-	public void deleteData(String data) {
+	public void deleteContact(String name) {
 			
-		contacts.remove(Index(data));
+		contacts.remove(index(name));
 			
 	}
 	
-	/** @author Iosu A method to modify the information about a contact.
+	/** @author Iosu 
+	 * A method to modify the information about a contact.
 	 * 
 	 * @param contact
 	 * @param index
 	 */
 		
-	public void modifyData(Contact contact, int index) {
+	public void modifyContact(Contact contact, int index) {
 		
 		contacts.set(index, contact);
 		
 	}
 	
-	/** @author Iosu A method to delete all the information in the agenda.
+	/** @author Iosu 
+	 * A method to delete all the information in the agenda.
 	 * 
 	 */
 	
-	public void deleteAllData() {
+	public void deleteAllContacts() {
 		
 		contacts.clear();
 		
@@ -130,6 +126,18 @@ public class Agenda {
 		
 		contacts.add(note);
 			
+	}
+	
+	public void addFavContact(String name) {
+		
+		
+		
+	}
+	
+	public String isFav(String name) {
+		
+		return name;
+		
 	}
 	
 }

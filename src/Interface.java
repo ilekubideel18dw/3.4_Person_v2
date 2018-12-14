@@ -42,7 +42,7 @@ public class Interface {
 			case 1: // View data.
 				
 				String view = sc.next();
-				myContacts.viewData(view);
+				myContacts.viewContact(view);
 				
 				// Another option?
 				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
@@ -75,7 +75,7 @@ public class Interface {
 				Person person = new Person(name, age, weight, dni);
 				Contact contact = new Contact(person, phone, address);
 				
-				myContacts.addData(contact);
+				myContacts.addContact(contact);
 				
 				// Another option?
 				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
@@ -88,7 +88,7 @@ public class Interface {
 			case 3: // Delete data.
 				
 				String delete = sc.next();
-				myContacts.deleteData(delete);
+				myContacts.deleteContact(delete);
 				
 				// Another option?
 				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
@@ -102,7 +102,7 @@ public class Interface {
 				
 				System.out.println("Enter the name of the contact you want to modify");
 				String data = sc.next();
-				Contact modifiedData = myContacts.takeContact(myContacts.find(data));
+				Contact modifiedData = myContacts.takeContact(myContacts.index(data));
 
 				System.out.println("What do you want to change?");
 				System.out.println("Enter an option:");
@@ -161,7 +161,7 @@ public class Interface {
 				
 				}
 				
-				myContacts.modifyData(modifiedData, myContacts.find(data));
+				myContacts.modifyContact(modifiedData, myContacts.index(data));
 				
 				// Another option?
 				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
@@ -173,7 +173,7 @@ public class Interface {
 				
 			case 5: // Delete all
 
-				myContacts.deleteAllData();
+				myContacts.deleteAllContacts();
 				
 				// Another option?
 				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
@@ -199,7 +199,7 @@ public class Interface {
 				
 				System.out.println("To which contact do you want to add a note?");
 				String noteName = sc.next();
-				Contact noteContact = myContacts.takeContact(myContacts.find(noteName));
+				Contact noteContact = myContacts.takeContact(myContacts.index(noteName));
 				
 				System.out.println("Note:");
 				String note = sc.next();
@@ -213,6 +213,28 @@ public class Interface {
         		if (continue7 < 1) {
         			loop = 1;
         		}
+				break;
+				
+			case 8: // Add favorite
+				
+				System.out.println("Enter the name of the contact you want to add to favorites:");
+				String favName = sc.next();
+				Contact modifiedFav = myContacts.takeContact(myContacts.index(favName));
+				modifiedFav.setFav(true);
+				break;
+				
+			case 9: // Delete favorite
+				
+				System.out.println("Enter the name of the contact you want to add to favorites:");
+				String notFavName = sc.next();
+				Contact modifiedNotFav = myContacts.takeContact(myContacts.index(notFavName));
+				modifiedNotFav.setFav(false);
+				break;
+				
+			case 10: // View favorite
+				
+				System.out.println("Enter a name to see its favorite or note:");
+				String favorite = sc.next();
 				break;
 			
 			default:
