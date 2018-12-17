@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 import com.zubiri.agenda.Agenda;
 import com.zubiri.agenda.Contact;
@@ -12,6 +13,8 @@ public class Interface {
 		Scanner sc = new Scanner(System.in);
 		
 		Agenda myContacts = new Agenda();
+		
+		ArrayList<String> notes = new ArrayList<String>();
 		
 		int loop = 0;
 		
@@ -27,6 +30,13 @@ public class Interface {
 			System.out.println("4.- Delete all contacts.");
 			System.out.println("5.- Modify a contact.");
 			System.out.println("6.- See how many contacts are in the agenda.");
+			System.out.println("7.- Add a note to a contact.");
+			System.out.println("8.- Delete a note.");
+			System.out.println("9.- View a contacts notes.");
+			System.out.println("10.- Add a contact to favorite list.");
+			System.out.println("11.- Delete a contact from favorite list.");
+			System.out.println("12.- See a contact is favorite or not.");
+			System.out.println("13.- View all contacts of the agenda ordered alphabetically.");
 			System.out.println("0.- Exit.");
 			
 			int option = sc.nextInt();
@@ -202,10 +212,11 @@ public class Interface {
 				Contact noteContact = myContacts.takeContact(myContacts.index(noteName));
 				
 				System.out.println("Note:");
-				String note = sc.next();
+				notes.add(sc.next());
 				
-				//modifiedData.getPerson().setName(sc.next());
-				//myContacts.addNotes(noteContact, note);
+				noteContact.setNotes(notes);
+				
+				myContacts.modifyContact(noteContact, myContacts.index(noteName));
 				
 				// Another option?
 				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
@@ -215,26 +226,99 @@ public class Interface {
         		}
 				break;
 				
-			case 8: // Add favorite
+			case 8: // Delete notes
+				
+				System.out.println("To which contact do you want to add a note?");
+				String delNoteName = sc.next();
+				Contact delNoteContact = myContacts.takeContact(myContacts.index(delNoteName));
+				
+				System.out.println("The note of what position do you want to delete?");
+				notes.remove(sc.nextInt() + 1);
+				
+				myContacts.modifyContact(delNoteContact, myContacts.index(delNoteName));
+				
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue8 = sc.nextInt();
+        		if (continue8 < 1) {
+        			loop = 1;
+        		}
+				break;
+				
+			case 9:	// View notes.
+				
+				String notesFrom = sc.next();
+				myContacts.viewNotes(notesFrom);
+				
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue9 = sc.nextInt();
+        		if (continue9 < 1) {
+        			loop = 1;
+        		}
+				break;
+				
+			case 10: // Add favorite
 				
 				System.out.println("Enter the name of the contact you want to add to favorites:");
 				String favName = sc.next();
 				Contact modifiedFav = myContacts.takeContact(myContacts.index(favName));
 				modifiedFav.setFav(true);
+				
+				myContacts.modifyContact(modifiedFav, myContacts.index(favName));
+				
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue10 = sc.nextInt();
+        		if (continue10 < 1) {
+        			loop = 1;
+        		}
 				break;
 				
-			case 9: // Delete favorite
+			case 11: // Delete favorite
 				
 				System.out.println("Enter the name of the contact you want to add to favorites:");
 				String notFavName = sc.next();
 				Contact modifiedNotFav = myContacts.takeContact(myContacts.index(notFavName));
 				modifiedNotFav.setFav(false);
+				
+				myContacts.modifyContact(modifiedNotFav, myContacts.index(notFavName));
+
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue11 = sc.nextInt();
+        		if (continue11 < 1) {
+        			loop = 1;
+        		}
 				break;
 				
-			case 10: // View favorite
+			case 12: // View favorite
 				
 				System.out.println("Enter a name to see its favorite or note:");
 				String favorite = sc.next();
+				
+				myContacts.isFav(favorite);
+
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue12 = sc.nextInt();
+        		if (continue12 < 1) {
+        			loop = 1;
+        		}
+				break;
+				
+			case 13: // All contacts ordered alphabetically	
+				
+				System.out.println("These are all the contact you have in your agenda:");
+				
+				
+				
+				// Another option?
+				System.out.println("Do you want to finish or do you want another option? Enter 0 to finish or another number to continue:");
+        		int continue13 = sc.nextInt();
+        		if (continue13 < 1) {
+        			loop = 1;
+        		}
 				break;
 			
 			default:

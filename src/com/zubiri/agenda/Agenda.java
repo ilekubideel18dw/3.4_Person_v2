@@ -107,6 +107,7 @@ public class Agenda {
 	}
 	
 	/** @author Iosu
+	 * A method to see how many contacts are in your agenda.
 	 * 
 	 * @return The quantity of contacts.
 	 */
@@ -118,9 +119,12 @@ public class Agenda {
 	}
 	
 	/** @author Iosu
+	 * A method to add notes to your contacts.
 	 * 
 	 * @param note
 	 */
+	
+	/*
 	
 	public void addNotes(Contact note) {
 		
@@ -128,15 +132,40 @@ public class Agenda {
 			
 	}
 	
-	public void addFavContact(String name) {
+	public void deleteNotes(Contact note) {
 		
 		
 		
 	}
 	
+	*/
+	
+	/** @author Iosu
+	 * A method to see a contact is favorite or not.
+	 * 
+	 * @param name
+	 * @return A contact is in your favorite list or not.
+	 */
+	
 	public String isFav(String name) {
 		
-		return name;
+		if (contacts.get(index(name)).getFav() == true) {
+		
+			return "This contact is in your favorite list";
+		
+		}
+		
+		else {
+			
+			return "This contact is not in your favorite list";
+			
+		}
+		
+	}
+	
+	public ArrayList viewNotes(String name) {
+		
+		return contacts.get(index(name)).getNotes();
 		
 	}
 	
