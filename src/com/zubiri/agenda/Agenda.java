@@ -169,4 +169,12 @@ public class Agenda {
 		
 	}
 	
+	public String orderedList() {
+		
+		// https://programacion.net/articulo/ordenar_alfabeticamente_un_array_de_textos_con_java_1178
+		
+		return "a";
+		
+	}
+	
 }
