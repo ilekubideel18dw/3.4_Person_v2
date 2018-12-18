@@ -1,5 +1,7 @@
 package com.zubiri.agenda;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
 
 public class Agenda {
 		
@@ -171,6 +173,14 @@ public class Agenda {
 	
 	public String orderedList() {
 		
+		Collections.sort(contacts);
+		
+		for(Contact aux: contacts){
+            System.out.println(aux);
+        }
+		
+		// https://www.javamexico.org/blogs/nomarlegnar/ordenar_un_listltgt_arraylist_de_objetos
+		// http://www.forosdelweb.com/f45/como-ordenar-arraylist-objetos-914181/
 		// https://programacion.net/articulo/ordenar_alfabeticamente_un_array_de_textos_con_java_1178
 		
 		return "a";
